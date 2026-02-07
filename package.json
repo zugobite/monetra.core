@@ -1,0 +1,70 @@
+{
+  "name": "@monetra/core",
+  "version": "0.1.0",
+  "description": "Precision BigInt money for TypeScript. Immutable, integer-based monetary values with ISO 4217 currencies, allocation, rounding, and custom token support. Zero dependencies.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.mjs",
+      "require": "./dist/tokens/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly --outDir dist",
+    "test": "vitest --run",
+    "test:property": "vitest --run tests/money/PropertyBased.test.ts",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --run --coverage",
+    "lint": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prepublishOnly": "pnpm run build"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "keywords": [
+    "money",
+    "currency",
+    "bigint",
+    "typescript",
+    "integer-arithmetic",
+    "precision",
+    "immutable",
+    "iso-4217",
+    "allocation",
+    "rounding"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zugobite/monetra.core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zugobite/monetra.core/issues"
+  },
+  "homepage": "https://github.com/zugobite/monetra.core#readme",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "author": "Zascia Hugo",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@vitest/coverage-v8": "4.0.16",
+    "fast-check": "^4.5.3",
+    "prettier": "^3.0.0",
+    "tsup": "^8.0.0",
+    "vitest": "~4.0.16",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
