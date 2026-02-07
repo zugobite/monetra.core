@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-The following versions of `@monetra/core` are currently supported with security updates:
+The following versions of `@zugobite/monetra-core` are currently supported with security updates:
 
 | Version | Supported          |
 | ------- | ------------------ |

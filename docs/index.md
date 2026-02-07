@@ -1,12 +1,12 @@
-# @monetra/core Documentation
+# @zugobite/monetra-core Documentation
 
 Precision BigInt money for TypeScript. Zero dependencies.
 
 ---
 
-## What is @monetra/core?
+## What is @zugobite/monetra-core?
 
-`@monetra/core` is a zero-dependency TypeScript library for handling monetary values with absolute correctness. It stores all amounts as `BigInt` minor units (cents, satoshis, wei) to eliminate the floating-point errors that plague traditional `number`-based approaches.
+`@zugobite/monetra-core` is a zero-dependency TypeScript library for handling monetary values with absolute correctness. It stores all amounts as `BigInt` minor units (cents, satoshis, wei) to eliminate the floating-point errors that plague traditional `number`-based approaches.
 
 It provides everything you need for correct money handling:
 
@@ -23,7 +23,7 @@ It provides everything you need for correct money handling:
 
 ## Getting Started
 
-1. [Installation & Setup](./getting-started.md) — Add `@monetra/core` to your project
+1. [Installation & Setup](./getting-started.md) — Add `@zugobite/monetra-core` to your project
 2. [Core Concepts](./core-concepts.md) — Understand BigInt, minor units, and rounding
 3. [Guides](./guides/allocation.md) — Learn common patterns
 
@@ -53,7 +53,7 @@ It provides everything you need for correct money handling:
 
 ## Comparison
 
-| Challenge             | Traditional Libraries | @monetra/core                        |
+| Challenge             | Traditional Libraries | @zugobite/monetra-core                        |
 | --------------------- | --------------------- | ------------------------------------ |
 | Floating-point errors | `0.1 + 0.2 !== 0.3`  | Integer-based arithmetic with BigInt |
 | Currency mixing       | Silent bugs           | Type-safe currency enforcement       |
@@ -67,7 +67,7 @@ See the full [Library Comparison](./comparison.md).
 
 ## Relationship to Monetra
 
-`@monetra/core` is the foundation layer extracted from the [Monetra](https://github.com/zugobite/monetra) framework. Higher-level features (financial math, ledgers, double-entry bookkeeping) live in the full `monetra` package.
+`@zugobite/monetra-core` is the foundation layer extracted from the [Monetra](https://github.com/zugobite/monetra) framework. Higher-level features (financial math, ledgers, double-entry bookkeeping) live in the full `monetra` package.
 
 ---
 

@@ -1,6 +1,6 @@
 ![Monetra](./monetra_core.png)
 
-# @monetra/core
+# @zugobite/monetra-core
 
 Precision BigInt money for TypeScript. Immutable, integer-based monetary values with ISO 4217 currencies, allocation, rounding, formatting, and custom token support. Zero dependencies.
 
@@ -9,14 +9,14 @@ Precision BigInt money for TypeScript. Immutable, integer-based monetary values 
 
 ### Package Information
 
-[![npm version](https://img.shields.io/npm/v/@monetra/core.svg)](https://www.npmjs.com/package/@monetra/core)
-[![npm downloads](https://img.shields.io/npm/dm/@monetra/core.svg)](https://www.npmjs.com/package/@monetra/core)
+[![npm version](https://img.shields.io/npm/v/@zugobite/monetra-core.svg)](https://www.npmjs.com/package/@zugobite/monetra-core)
+[![npm downloads](https://img.shields.io/npm/dm/@zugobite/monetra-core.svg)](https://www.npmjs.com/package/@zugobite/monetra-core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
 
 ---
 
-## Why @monetra/core?
+## Why @zugobite/monetra-core?
 
 **💰 BigInt Precision** — No floating-point surprises. Ever. Monetary values are stored in minor units as `BigInt`, eliminating the classic `0.1 + 0.2` problem.
 
@@ -31,7 +31,7 @@ Precision BigInt money for TypeScript. Immutable, integer-based monetary values 
 **📦 Zero Dependencies** — No supply chain risks. No transitive vulnerabilities. Just TypeScript.
 
 ```typescript
-import { money, Money } from "@monetra/core";
+import { money, Money } from "@zugobite/monetra-core";
 
 // Create from major units (string) or minor units (number/bigint)
 const price = money("19.99", "USD");
@@ -51,13 +51,13 @@ const [a, b, c] = money("10.00", "USD").allocate([1, 1, 1]);
 
 ```bash
 # npm
-npm install @monetra/core
+npm install @zugobite/monetra-core
 
 # yarn
-yarn add @monetra/core
+yarn add @zugobite/monetra-core
 
 # pnpm
-pnpm add @monetra/core
+pnpm add @zugobite/monetra-core
 ```
 
 **Requirements:** Node.js 18+ or any modern runtime/browser with `BigInt` support.
@@ -119,7 +119,7 @@ pnpm add @monetra/core
 ### Safe Money Handling
 
 ```typescript
-import { money, Money } from "@monetra/core";
+import { money, Money } from "@zugobite/monetra-core";
 
 const price = money("19.99", "USD");
 const quantity = 3;
@@ -133,7 +133,7 @@ console.log(total.format()); // "$53.97"
 ### Currency Conversion
 
 ```typescript
-import { Money, Converter } from "@monetra/core";
+import { Money, Converter } from "@zugobite/monetra-core";
 
 const converter = new Converter("USD");
 converter.setRate("EUR", 0.92);
@@ -148,7 +148,7 @@ console.log(eur.format()); // "€92.00"
 ### Custom Tokens
 
 ```typescript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 defineToken({
   code: "LOYALTY",
@@ -164,7 +164,7 @@ console.log(points.format()); // "★500"
 ### Allocation
 
 ```typescript
-import { money } from "@monetra/core";
+import { money } from "@zugobite/monetra-core";
 
 // Split a bill 3 ways
 const bill = money("100.00", "USD");
@@ -218,7 +218,7 @@ pnpm test:coverage
 
 ## Relationship to Monetra
 
-`@monetra/core` is the foundation layer extracted from the [Monetra](https://github.com/zugobite/monetra) framework. It contains only the correctness primitives — BigInt-based money, currencies, allocation, rounding, and formatting.
+`@zugobite/monetra-core` is the foundation layer extracted from the [Monetra](https://github.com/zugobite/monetra) framework. It contains only the correctness primitives — BigInt-based money, currencies, allocation, rounding, and formatting.
 
 Higher-level features (financial math, ledgers, double-entry bookkeeping) live in the full `monetra` package.
 

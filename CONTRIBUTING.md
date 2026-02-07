@@ -1,6 +1,6 @@
-# Contributing to @monetra/core
+# Contributing to @zugobite/monetra-core
 
-First off, thanks for taking the time to contribute! `@monetra/core` is a precision money library, and we value correctness above all else.
+First off, thanks for taking the time to contribute! `@zugobite/monetra-core` is a precision money library, and we value correctness above all else.
 
 ## How to Contribute
 
@@ -34,7 +34,7 @@ We use [GitHub Projects](https://github.com/zugobite/monetra.core) to track our 
 ### Testing
 
 - **Correctness and Rigor are paramount.**
-- Since `@monetra/core` handles monetary values, we uphold strict standards for testing and reliability.
+- Since `@zugobite/monetra-core` handles monetary values, we uphold strict standards for testing and reliability.
 - All new features must include comprehensive unit tests.
 - **Work will not be merged if it does not pass all coverage tests.**
 - Run `pnpm test` to verify your changes.

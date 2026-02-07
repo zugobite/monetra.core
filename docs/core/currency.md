@@ -1,6 +1,6 @@
 # Currency & Tokens API Reference
 
-`@monetra/core` provides comprehensive support for ISO 4217 currencies, cryptocurrencies, and custom tokens.
+`@zugobite/monetra-core` provides comprehensive support for ISO 4217 currencies, cryptocurrencies, and custom tokens.
 
 ---
 
@@ -44,7 +44,7 @@ function getCurrency(code: string): Currency;
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { getCurrency, Money } from "@monetra/core";
+import { getCurrency, Money } from "@zugobite/monetra-core";
 
 // Get currency details
 const usd = getCurrency("USD");
@@ -73,7 +73,7 @@ console.log(amount.currency.symbol); // "€"
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { getCurrency, Money } from "@monetra/core";
+import { getCurrency, Money } from "@zugobite/monetra-core";
 
 const eur = getCurrency("EUR");
 const amount = Money.fromMajor("50.00", eur);
@@ -99,7 +99,7 @@ function registerCurrency(currency: Currency): void;
 **Examples:**
 
 ```typescript
-import { registerCurrency, money } from "@monetra/core";
+import { registerCurrency, money } from "@zugobite/monetra-core";
 
 // Register a company-specific currency/points
 registerCurrency({
@@ -147,7 +147,7 @@ interface Currency {
 
 ### Supported Currencies
 
-`@monetra/core` includes all ISO 4217 currencies. Common examples:
+`@zugobite/monetra-core` includes all ISO 4217 currencies. Common examples:
 
 | Code | Name              | Decimals | Symbol |
 | ---- | ----------------- | -------- | ------ |
@@ -204,7 +204,7 @@ function defineToken(definition: {
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 // Define a custom token
 const MATIC = defineToken({
@@ -253,7 +253,7 @@ console.log(daiBalance.format()); // "1,000.50 DAI"
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 // Company loyalty points
 const REWARDS = defineToken({
@@ -273,7 +273,7 @@ console.log(points.format()); // "5,000 ★"
 <summary><strong>React.js</strong></summary>
 
 ```tsx
-import { defineToken, money, Money } from "@monetra/core";
+import { defineToken, money, Money } from "@zugobite/monetra-core";
 import { useMemo } from "react";
 
 // Define tokens once at module level
@@ -309,7 +309,7 @@ function TokenBalance({ balance, token }: { balance: string; token: string }) {
 
 ```vue
 <script setup lang="ts">
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 import { computed } from "vue";
 
 // Define token
@@ -339,7 +339,7 @@ const formatted = computed(() => money(props.balance, SOL).format());
 <summary><strong>Node.js</strong></summary>
 
 ```javascript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 // Token configuration from environment/database
 function initializeTokens(tokenConfigs) {
@@ -384,10 +384,10 @@ app.get("/balances/:address", async (req, res) => {
 
 ### Built-in Tokens {#builtin-tokens}
 
-`@monetra/core` includes pre-defined popular cryptocurrency tokens:
+`@zugobite/monetra-core` includes pre-defined popular cryptocurrency tokens:
 
 ```typescript
-import { ETH, BTC, USDC, USDT, money } from "@monetra/core";
+import { ETH, BTC, USDC, USDT, money } from "@zugobite/monetra-core";
 
 // Ethereum (18 decimals)
 const ethBalance = money("1.5", ETH);
@@ -443,7 +443,7 @@ class Converter {
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { money, Converter } from "@monetra/core";
+import { money, Converter } from "@zugobite/monetra-core";
 
 // Create converter with USD as base
 const converter = new Converter("USD", {
@@ -474,7 +474,7 @@ console.log(yen.format()); // "¥14,950"
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { money, Converter } from "@monetra/core";
+import { money, Converter } from "@zugobite/monetra-core";
 
 // Fetch rates from an API
 async function getConverter() {
@@ -496,7 +496,7 @@ console.log(converted.format());
 
 ```tsx
 import React, { useState, useEffect, useMemo } from "react";
-import { money, Converter, Money } from "@monetra/core";
+import { money, Converter, Money } from "@zugobite/monetra-core";
 
 function CurrencyConverter() {
   const [amount, setAmount] = useState("100");
@@ -572,7 +572,7 @@ function CurrencyConverter() {
 <summary><strong>Node.js</strong></summary>
 
 ```javascript
-import { money, Converter } from "@monetra/core";
+import { money, Converter } from "@zugobite/monetra-core";
 import express from "express";
 
 const app = express();
@@ -641,7 +641,7 @@ class MoneyBag {
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { money, MoneyBag, Converter } from "@monetra/core";
+import { money, MoneyBag, Converter } from "@zugobite/monetra-core";
 
 // Create a portfolio
 const portfolio = new MoneyBag();
@@ -690,7 +690,7 @@ console.log(JSON.stringify(json, null, 2));
 
 ```tsx
 import React, { useState, useCallback } from "react";
-import { money, MoneyBag, Converter, Money } from "@monetra/core";
+import { money, MoneyBag, Converter, Money } from "@zugobite/monetra-core";
 
 function Portfolio() {
   const [bag] = useState(() => new MoneyBag());
@@ -748,7 +748,7 @@ function Portfolio() {
 <summary><strong>Node.js</strong></summary>
 
 ```javascript
-import { money, MoneyBag, Converter, Money } from "@monetra/core";
+import { money, MoneyBag, Converter, Money } from "@zugobite/monetra-core";
 
 // User wallet service
 class WalletService {

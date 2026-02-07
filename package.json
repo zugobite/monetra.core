@@ -1,5 +1,5 @@
 {
-  "name": "@monetra/core",
+  "name": "@zugobite/monetra-core",
   "version": "0.1.0",
   "description": "Precision BigInt money for TypeScript. Immutable, integer-based monetary values with ISO 4217 currencies, allocation, rounding, and custom token support. Zero dependencies.",
   "main": "./dist/index.js",

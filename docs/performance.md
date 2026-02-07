@@ -1,6 +1,6 @@
 # Performance
 
-`@monetra/core` uses native `BigInt` arithmetic for maximum speed. All monetary values are stored as integer minor units, avoiding the overhead of decimal string parsing during computation.
+`@zugobite/monetra-core` uses native `BigInt` arithmetic for maximum speed. All monetary values are stored as integer minor units, avoiding the overhead of decimal string parsing during computation.
 
 ---
 

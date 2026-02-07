@@ -1,6 +1,6 @@
 # Best Practices
 
-Recommended patterns and anti-patterns for building reliable applications with `@monetra/core`.
+Recommended patterns and anti-patterns for building reliable applications with `@zugobite/monetra-core`.
 
 ---
 
@@ -21,7 +21,7 @@ Define currencies and tokens in a single module:
 
 ```typescript
 // config/currencies.ts
-import { getCurrency, defineToken } from "@monetra/core";
+import { getCurrency, defineToken } from "@zugobite/monetra-core";
 
 export const USD = getCurrency("USD");
 export const EUR = getCurrency("EUR");
@@ -42,7 +42,7 @@ export type SupportedCurrency = "USD" | "EUR" | "GBP" | "REWARDS";
 Wrap common creation patterns:
 
 ```typescript
-import { money, Money } from "@monetra/core";
+import { money, Money } from "@zugobite/monetra-core";
 
 export function usd(amount: string): Money {
   return money(amount, "USD");
@@ -135,7 +135,7 @@ const total = price.add(tax);
 ### Test with Exact Values
 
 ```typescript
-import { money } from "@monetra/core";
+import { money } from "@zugobite/monetra-core";
 
 test("calculates order total correctly", () => {
   const price = money("19.99", "USD");
@@ -226,8 +226,8 @@ Import only what you need for optimal bundle size:
 
 ```typescript
 // ✅ Named imports — tree-shakeable
-import { money, Money, RoundingMode } from "@monetra/core";
+import { money, Money, RoundingMode } from "@zugobite/monetra-core";
 
 // ❌ Avoid namespace imports
-import * as Core from "@monetra/core";
+import * as Core from "@zugobite/monetra-core";
 ```

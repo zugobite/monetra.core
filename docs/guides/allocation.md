@@ -1,6 +1,6 @@
 # Allocation & Splitting Guide
 
-When you need to divide money among multiple parties, simple division often leads to rounding issues that cause pennies to disappear. `@monetra/core`'s allocation features ensure every cent is accounted for.
+When you need to divide money among multiple parties, simple division often leads to rounding issues that cause pennies to disappear. `@zugobite/monetra-core`'s allocation features ensure every cent is accounted for.
 
 ---
 
@@ -33,7 +33,7 @@ Over thousands of transactions, these lost cents add up to real money—and acco
 ### The Solution
 
 ```typescript
-import { money } from "@monetra/core";
+import { money } from "@zugobite/monetra-core";
 
 const total = money("100.00", "USD");
 const shares = total.split(3);
@@ -52,7 +52,7 @@ console.log(sum.format()); // "$100.00"
 ### Basic Usage
 
 ```typescript
-import { money } from "@monetra/core";
+import { money } from "@zugobite/monetra-core";
 
 const bill = money("87.50", "USD");
 
@@ -74,7 +74,7 @@ shares.forEach((share, i) => {
 When the amount doesn't divide evenly, the remainder (in minor units) is distributed one unit at a time to the first shares:
 
 ```typescript
-import { money } from "@monetra/core";
+import { money } from "@zugobite/monetra-core";
 
 // 10000 cents / 3 = 3333 remainder 1
 const amount = money("100.00", "USD");
@@ -97,7 +97,7 @@ When you need to split money by specific proportions (not equally), use `allocat
 ### Basic Usage
 
 ```typescript
-import { money } from "@monetra/core";
+import { money } from "@zugobite/monetra-core";
 
 const revenue = money("10000.00", "USD");
 
@@ -117,7 +117,7 @@ console.log(parts.map((s) => s.format()));
 Remainders are distributed to ratios with the largest relative "rounding error":
 
 ```typescript
-import { money } from "@monetra/core";
+import { money } from "@zugobite/monetra-core";
 
 // $100 split 70/30
 const amount = money("100.00", "USD");
@@ -142,7 +142,7 @@ console.log(tricky.map((s) => s.format()));
 <summary><strong>TypeScript - Commission Splits</strong></summary>
 
 ```typescript
-import { money, Money } from "@monetra/core";
+import { money, Money } from "@zugobite/monetra-core";
 
 interface SalesRep {
   id: string;
@@ -195,7 +195,7 @@ commissions.forEach(({ rep, amount }) => {
 
 ```tsx
 import React, { useState, useMemo } from "react";
-import { money, Money } from "@monetra/core";
+import { money, Money } from "@zugobite/monetra-core";
 
 interface Allocation {
   name: string;
@@ -301,7 +301,7 @@ function PortfolioAllocator() {
 <summary><strong>Node.js - Revenue Sharing</strong></summary>
 
 ```javascript
-import { money, Money } from "@monetra/core";
+import { money, Money } from "@zugobite/monetra-core";
 
 class RevenueSharing {
   constructor(stakeholders) {
@@ -375,7 +375,7 @@ await partnership.processMonthlyDistribution("127500.00");
 ### Tiered Allocation
 
 ```typescript
-import { money, Money } from "@monetra/core";
+import { money, Money } from "@zugobite/monetra-core";
 
 interface Tier {
   threshold: Money;
@@ -422,7 +422,7 @@ console.log(`Commission on ${sales.format()}: ${commission.format()}`);
 ### Weighted Allocation with Minimums
 
 ```typescript
-import { money, Money } from "@monetra/core";
+import { money, Money } from "@zugobite/monetra-core";
 
 interface Recipient {
   id: string;
@@ -480,7 +480,7 @@ allocations.forEach((amount, id) => {
 ### Fractional Shares with Rounding Pools
 
 ```typescript
-import { money, Money, RoundingMode } from "@monetra/core";
+import { money, Money, RoundingMode } from "@zugobite/monetra-core";
 
 /**
  * Allocates with a "rounding pool" to handle accumulated errors

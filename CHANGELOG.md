@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-This is the initial release of `@monetra/core`, extracted from the full [Monetra](https://github.com/zugobite/monetra) framework (v2.3.0). It contains only the correctness-focused foundation layer.
+This is the initial release of `@zugobite/monetra-core`, extracted from the full [Monetra](https://github.com/zugobite/monetra) framework (v2.3.0). It contains only the correctness-focused foundation layer.
 
 #### Core Money (`Money` class)
 
@@ -69,7 +69,7 @@ This is the initial release of `@monetra/core`, extracted from the full [Monetra
 
 ### Removed (vs. Monetra v2.3.0)
 
-The following modules from the full Monetra framework are **not included** in `@monetra/core`:
+The following modules from the full Monetra framework are **not included** in `@zugobite/monetra-core`:
 
 - **Financial Mathematics** — `pmt`, `npv`, `irr`, `futureValue`, `presentValue`, loan amortisation, compound/simple interest, depreciation, leverage ratios, ROI, `Rate` class
 - **Ledger System** — `Ledger`, `DoubleEntryLedger`, `Account`, `JournalEntry`, chart-of-accounts templates, SHA-256 hash chain verification

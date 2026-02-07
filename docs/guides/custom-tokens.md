@@ -1,6 +1,6 @@
 # Custom Tokens Guide
 
-`@monetra/core` supports not only traditional fiat currencies but also cryptocurrencies, stablecoins, and custom tokens. This guide covers how to define and work with custom monetary units.
+`@zugobite/monetra-core` supports not only traditional fiat currencies but also cryptocurrencies, stablecoins, and custom tokens. This guide covers how to define and work with custom monetary units.
 
 ---
 
@@ -27,7 +27,7 @@ Use `defineToken()` when you need to work with:
 - **Custom business units** (credits, shares)
 
 ```typescript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 // Your company's reward points
 const REWARDS = defineToken({
@@ -52,7 +52,7 @@ console.log(bonus.format()); // "5,500 ★"
 ### Basic Token Definition
 
 ```typescript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 const token = defineToken({
   code: "MYTOKEN", // Required: Unique identifier
@@ -68,7 +68,7 @@ console.log(balance.format()); // "100.12345678 MTK"
 ### Full Token Definition
 
 ```typescript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 const MATIC = defineToken({
   // Required fields
@@ -111,10 +111,10 @@ interface TokenDefinition {
 
 ## Built-in Crypto Tokens {#builtin-tokens}
 
-`@monetra/core` includes popular cryptocurrency tokens:
+`@zugobite/monetra-core` includes popular cryptocurrency tokens:
 
 ```typescript
-import { ETH, BTC, USDC, USDT, money } from "@monetra/core";
+import { ETH, BTC, USDC, USDT, money } from "@zugobite/monetra-core";
 
 // Ethereum (18 decimals)
 const ethBalance = money("2.5", ETH);
@@ -154,7 +154,7 @@ console.log(USDT.decimals); // 6
 ### Cryptocurrency
 
 ```typescript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 const SOL = defineToken({
   code: "SOL",
@@ -180,7 +180,7 @@ console.log(solBalance.format()); // "100.50 ◎"
 ### Stablecoins
 
 ```typescript
-import { defineToken, money, RoundingMode } from "@monetra/core";
+import { defineToken, money, RoundingMode } from "@zugobite/monetra-core";
 
 const DAI = defineToken({
   code: "DAI",
@@ -215,7 +215,7 @@ console.log(usdcAmount.minor); // 100000000n (6 decimals)
 ### Game/Reward Tokens
 
 ```typescript
-import { defineToken, money } from "@monetra/core";
+import { defineToken, money } from "@zugobite/monetra-core";
 
 // Game currency with no decimals
 const GOLD = defineToken({
@@ -243,7 +243,7 @@ console.log(pointsBalance.format()); // "125.50 pts"
 ### Commodities
 
 ```typescript
-import { defineToken, money, RoundingMode } from "@monetra/core";
+import { defineToken, money, RoundingMode } from "@zugobite/monetra-core";
 
 // Gold by troy ounce (common precision: 3-4 decimals)
 const XAU = defineToken({
@@ -277,7 +277,7 @@ console.log(silverHolding.format()); // "500.2500 oz Ag"
 Ethereum and many ERC-20 tokens use 18 decimals:
 
 ```typescript
-import { defineToken, money, Money, RoundingMode } from "@monetra/core";
+import { defineToken, money, Money, RoundingMode } from "@zugobite/monetra-core";
 
 // 1 ETH = 10^18 wei
 const ETH = defineToken({
@@ -310,7 +310,7 @@ console.log(ethBalance.format()); // "1.50 Ξ"
 ### Precision Conversions
 
 ```typescript
-import { money, Money, ETH, USDC, Converter } from "@monetra/core";
+import { money, Money, ETH, USDC, Converter } from "@zugobite/monetra-core";
 
 // Converting between different precision tokens
 const converter = new Converter("USD", {
@@ -335,7 +335,7 @@ console.log(ethAmount.format()); // "0.30 Ξ"
 
 ```typescript
 // tokens.ts - Define once, import everywhere
-import { defineToken } from "@monetra/core";
+import { defineToken } from "@zugobite/monetra-core";
 
 export const ETH = defineToken({
   code: "ETH",
@@ -379,7 +379,7 @@ function validateTokenConfig(config: TokenDefinition): void {
 ### 3. Handle Wei/Gwei Conversions
 
 ```typescript
-import { Money, ETH } from "@monetra/core";
+import { Money, ETH } from "@zugobite/monetra-core";
 
 // Wei to ETH
 function fromWei(wei: bigint): Money {
@@ -405,7 +405,7 @@ console.log(gasPrice.format()); // "0.000000050 Ξ"
 ### 4. Use Type-Safe Token References
 
 ```typescript
-import { Money, money } from "@monetra/core";
+import { Money, money } from "@zugobite/monetra-core";
 
 // Define a type for your supported tokens
 type SupportedToken = "ETH" | "USDC" | "MATIC";

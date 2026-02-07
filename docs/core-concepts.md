@@ -1,6 +1,6 @@
 # Core Concepts
 
-Understanding the design decisions behind `@monetra/core` will help you use the library effectively and build financially correct applications.
+Understanding the design decisions behind `@zugobite/monetra-core` will help you use the library effectively and build financially correct applications.
 
 ---
 
@@ -23,12 +23,12 @@ The fundamental problem with using `number` for money:
 // ❌ JavaScript floating-point
 0.1 + 0.2; // 0.30000000000000004
 
-// ✅ @monetra/core uses BigInt minor units
+// ✅ @zugobite/monetra-core uses BigInt minor units
 money("0.10", "USD").add(money("0.20", "USD"));
 // Internally: 10n + 20n = 30n → $0.30 (exact)
 ```
 
-`@monetra/core` stores all amounts as `BigInt` values in **minor units** (the smallest denomination of a currency). This eliminates floating-point errors entirely.
+`@zugobite/monetra-core` stores all amounts as `BigInt` values in **minor units** (the smallest denomination of a currency). This eliminates floating-point errors entirely.
 
 ### Why BigInt?
 
@@ -80,7 +80,7 @@ const eur = money("10.00", "EUR");
 usd.add(eur); // ❌ Throws CurrencyMismatchError
 
 // Use a Converter for cross-currency operations
-import { Converter } from "@monetra/core";
+import { Converter } from "@zugobite/monetra-core";
 const converter = new Converter("USD");
 converter.setRate("EUR", 0.92);
 const converted = converter.convert(eur, "USD");
@@ -107,10 +107,10 @@ This makes `Money` safe to share across components, functions, and threads witho
 
 ## Rounding Strategies {#rounding}
 
-When an operation cannot produce an exact result (like division), `@monetra/core` requires you to specify a rounding mode. This prevents silent precision loss:
+When an operation cannot produce an exact result (like division), `@zugobite/monetra-core` requires you to specify a rounding mode. This prevents silent precision loss:
 
 ```typescript
-import { money, RoundingMode } from "@monetra/core";
+import { money, RoundingMode } from "@zugobite/monetra-core";
 
 const total = money("10.00", "USD");
 
@@ -145,10 +145,10 @@ total.divide(3, { rounding: RoundingMode.CEIL });        // $3.34
 
 ## Type Safety {#type-safety}
 
-`@monetra/core` is written in strict TypeScript. Currency mismatches, invalid arguments, and missing rounding modes are all caught at the type level or with descriptive runtime errors:
+`@zugobite/monetra-core` is written in strict TypeScript. Currency mismatches, invalid arguments, and missing rounding modes are all caught at the type level or with descriptive runtime errors:
 
 ```typescript
-import { Money, CurrencyMismatchError, RoundingRequiredError } from "@monetra/core";
+import { Money, CurrencyMismatchError, RoundingRequiredError } from "@zugobite/monetra-core";
 
 try {
   usd.add(eur);
