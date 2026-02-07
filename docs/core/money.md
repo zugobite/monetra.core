@@ -71,7 +71,7 @@ function money(
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 // From string (major units)
 const dollars = money("10.50", "USD"); // $10.50
@@ -89,7 +89,7 @@ const bigAmount = money(100000000000n, "USD"); // $1,000,000,000.00
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 // From string (major units)
 const dollars = money("10.50", "USD"); // $10.50
@@ -107,7 +107,7 @@ const bigAmount = money(100000000000n, "USD"); // $1,000,000,000.00
 <summary><strong>JavaScript (CommonJS)</strong></summary>
 
 ```javascript
-const { money } = require("@zugobite/monetra-core");
+const { money } = require("monetra-core");
 
 // From string (major units)
 const dollars = money("10.50", "USD"); // $10.50
@@ -143,7 +143,7 @@ static fromMinor(minor: bigint | number, currency: Currency | string): Money
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { Money } from "@zugobite/monetra-core";
+import { Money } from "monetra-core";
 
 const amount = Money.fromMinor(1050, "USD"); // $10.50
 const precise = Money.fromMinor(1050n, "USD"); // Same, with BigInt
@@ -159,7 +159,7 @@ const dinar = Money.fromMinor(10500, "BHD"); // 10.500 BHD (3 decimals)
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { Money } from "@zugobite/monetra-core";
+import { Money } from "monetra-core";
 
 const amount = Money.fromMinor(1050, "USD"); // $10.50
 const yen = Money.fromMinor(1050, "JPY"); // ¥1,050
@@ -171,7 +171,7 @@ const yen = Money.fromMinor(1050, "JPY"); // ¥1,050
 <summary><strong>JavaScript (CommonJS)</strong></summary>
 
 ```javascript
-const { Money } = require("@zugobite/monetra-core");
+const { Money } = require("monetra-core");
 
 const amount = Money.fromMinor(1050, "USD"); // $10.50
 ```
@@ -205,7 +205,7 @@ static fromMajor(amount: string, currency: Currency | string): Money
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { Money } from "@zugobite/monetra-core";
+import { Money } from "monetra-core";
 
 const amount = Money.fromMajor("10.50", "USD"); // $10.50
 const large = Money.fromMajor("1000000.00", "USD"); // $1,000,000.00
@@ -224,7 +224,7 @@ try {
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { Money } from "@zugobite/monetra-core";
+import { Money } from "monetra-core";
 
 const amount = Money.fromMajor("10.50", "USD"); // $10.50
 const large = Money.fromMajor("1000000.00", "USD"); // $1,000,000.00
@@ -236,7 +236,7 @@ const large = Money.fromMajor("1000000.00", "USD"); // $1,000,000.00
 <summary><strong>JavaScript (CommonJS)</strong></summary>
 
 ```javascript
-const { Money } = require("@zugobite/monetra-core");
+const { Money } = require("monetra-core");
 
 const amount = Money.fromMajor("10.50", "USD");
 ```
@@ -277,7 +277,7 @@ static fromFloat(
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { Money, RoundingMode } from "@zugobite/monetra-core";
+import { Money, RoundingMode } from "monetra-core";
 
 // Use with caution - may have precision issues
 const amount = Money.fromFloat(10.5, "USD", {
@@ -295,7 +295,7 @@ const problematic = 0.1 + 0.2; // 0.30000000000000004
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { Money } from "@zugobite/monetra-core";
+import { Money } from "monetra-core";
 
 const amount = Money.fromFloat(10.5, "USD", {
   suppressWarning: true,
@@ -323,7 +323,7 @@ static zero(currency: Currency | string): Money
 **Examples:**
 
 ```typescript
-import { Money } from "@zugobite/monetra-core";
+import { Money } from "monetra-core";
 
 const zero = Money.zero("USD");
 console.log(zero.format()); // "$0.00"
@@ -362,7 +362,7 @@ add(other: Money | number | bigint | string): Money
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 const base = money("100.00", "USD");
 
@@ -385,7 +385,7 @@ const total = base.add("10.00").add("20.00").add(500); // $135.00
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const base = money("100.00", "USD");
 const sum = base.add(money("25.50", "USD")); // $125.50
@@ -398,7 +398,7 @@ const sum2 = base.add("25.50"); // $125.50
 <summary><strong>React.js</strong></summary>
 
 ```tsx
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 import { useMemo } from "react";
 
 function CartTotal({ items }: { items: Array<{ price: Money }> }) {
@@ -419,7 +419,7 @@ function CartTotal({ items }: { items: Array<{ price: Money }> }) {
 ```vue
 <script setup lang="ts">
 import { computed } from "vue";
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 const items = [
   { price: money("10.00", "USD") },
@@ -442,7 +442,7 @@ const total = computed(() =>
 <summary><strong>Node.js</strong></summary>
 
 ```javascript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 async function calculateOrderTotal(orderItems) {
   return orderItems.reduce(
@@ -481,7 +481,7 @@ subtract(other: Money | number | bigint | string): Money
 **Examples:**
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const price = money("100.00", "USD");
 const discount = money("15.00", "USD");
@@ -523,7 +523,7 @@ multiply(
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 const price = money("10.00", "USD");
 
@@ -549,7 +549,7 @@ const precise = price.multiply("1.5", {
 <summary><strong>JavaScript (ESM)</strong></summary>
 
 ```javascript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 const price = money("10.00", "USD");
 const quantity = 3;
@@ -586,7 +586,7 @@ divide(
 **Examples:**
 
 ```typescript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 const total = money("100.00", "USD");
 
@@ -626,7 +626,7 @@ percentage(percent: number, rounding?: RoundingMode): Money
 **Examples:**
 
 ```typescript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 const amount = money("100.00", "USD");
 
@@ -660,7 +660,7 @@ addPercent(percent: number, rounding?: RoundingMode): Money
 **Examples:**
 
 ```typescript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 const subtotal = money("100.00", "USD");
 
@@ -693,7 +693,7 @@ subtractPercent(percent: number, rounding?: RoundingMode): Money
 **Examples:**
 
 ```typescript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 const price = money("100.00", "USD");
 
@@ -721,7 +721,7 @@ abs(): Money
 **Examples:**
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const negative = money("-50.00", "USD");
 const positive = negative.abs();
@@ -746,7 +746,7 @@ negate(): Money
 **Examples:**
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const income = money("100.00", "USD");
 const expense = income.negate();
@@ -778,7 +778,7 @@ equals(other: Money | number | bigint | string): boolean
 **Examples:**
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const a = money("100.00", "USD");
 const b = money("100.00", "USD");
@@ -809,7 +809,7 @@ compare(other: Money | number | bigint | string): -1 | 0 | 1
 **Examples:**
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const a = money("50.00", "USD");
 const b = money("100.00", "USD");
@@ -844,7 +844,7 @@ lessThanOrEqual(other: Money | number | bigint | string): boolean
 **Examples:**
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const price = money("50.00", "USD");
 const budget = money("40.00", "USD");
@@ -870,7 +870,7 @@ isZero(): boolean
 **Examples:**
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 const positive = money("100.00", "USD");
 const negative = money("-50.00", "USD");
@@ -910,7 +910,7 @@ split(parts: number): Money[]
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const bill = money("100.00", "USD");
 
@@ -934,7 +934,7 @@ console.log(total.equals(bill)); // true - no cents lost!
 <summary><strong>React.js</strong></summary>
 
 ```tsx
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 function BillSplitter({ total, people }: { total: string; people: number }) {
   const bill = money(total, "USD");
@@ -979,7 +979,7 @@ allocate(ratios: number[]): Money[]
 <summary><strong>TypeScript</strong></summary>
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const revenue = money("1000.00", "USD");
 
@@ -1002,7 +1002,7 @@ const tricky = money("100.00", "USD").allocate([1, 1, 1]);
 <summary><strong>Node.js</strong></summary>
 
 ```javascript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 // Commission split example
 function calculateCommissions(saleAmount, team) {
@@ -1057,7 +1057,7 @@ static max(...values: Money[]): Money
 **Examples:**
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 const prices = [
   money("29.99", "USD"),
@@ -1099,7 +1099,7 @@ format(options?: {
 **Examples:**
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const amount = money("1234.56", "USD");
 
@@ -1140,7 +1140,7 @@ toJSON(): {
 **Examples:**
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 const amount = money("99.99", "USD");
 

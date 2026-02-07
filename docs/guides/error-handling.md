@@ -1,6 +1,6 @@
 # Error Handling Guide
 
-`@zugobite/monetra-core` provides typed, descriptive errors to help you handle edge cases gracefully. All errors extend `MonetraError` and include error codes for programmatic handling.
+`monetra-core` provides typed, descriptive errors to help you handle edge cases gracefully. All errors extend `MonetraError` and include error codes for programmatic handling.
 
 ---
 
@@ -18,10 +18,10 @@
 
 ### MonetraError (Base)
 
-All @zugobite/monetra-core errors extend this base class:
+All monetra-core errors extend this base class:
 
 ```typescript
-import { MonetraError, MonetraErrorCode } from "@zugobite/monetra-core";
+import { MonetraError, MonetraErrorCode } from "monetra-core";
 
 try {
   // Some operation
@@ -39,7 +39,7 @@ try {
 Thrown when performing operations on Money objects with different currencies:
 
 ```typescript
-import { money, CurrencyMismatchError } from "@zugobite/monetra-core";
+import { money, CurrencyMismatchError } from "monetra-core";
 
 const usd = money("100.00", "USD");
 const eur = money("50.00", "EUR");
@@ -68,7 +68,7 @@ try {
 **Solution:**
 
 ```typescript
-import { money, Converter } from "@zugobite/monetra-core";
+import { money, Converter } from "monetra-core";
 
 const usd = money("100.00", "USD");
 const eur = money("50.00", "EUR");
@@ -87,7 +87,7 @@ const total = usd.add(eurInUsd); // Now works
 Thrown when an operation produces a non-integer result but no rounding mode is specified:
 
 ```typescript
-import { money, RoundingRequiredError, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingRequiredError, RoundingMode } from "monetra-core";
 
 const price = money("100.00", "USD");
 
@@ -114,7 +114,7 @@ try {
 **Solution:**
 
 ```typescript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 const price = money("100.00", "USD");
 
@@ -135,7 +135,7 @@ console.log(parts.map((p) => p.format()));
 Thrown when a value exceeds the currency's allowed decimal places:
 
 ```typescript
-import { money, InvalidPrecisionError } from "@zugobite/monetra-core";
+import { money, InvalidPrecisionError } from "monetra-core";
 
 try {
   // USD has 2 decimal places
@@ -156,7 +156,7 @@ try {
 **Solution:**
 
 ```typescript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 // Option 1: Round the input
 const amount = money("100.001", "USD", { rounding: RoundingMode.HALF_UP });
@@ -180,7 +180,7 @@ if (validateDecimalPlaces("100.001", 2)) {
 Thrown when an operation would result in a negative balance:
 
 ```typescript
-import { money, InsufficientFundsError } from "@zugobite/monetra-core";
+import { money, InsufficientFundsError } from "monetra-core";
 
 try {
   // Application-level balance check
@@ -206,7 +206,7 @@ try {
 **Solution:**
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 const balance = money("50.00", "USD");
 const withdrawal = money("100.00", "USD");
@@ -226,7 +226,7 @@ if (balance.greaterThanOrEqual(withdrawal)) {
 Thrown when arithmetic exceeds safe integer bounds:
 
 ```typescript
-import { money, OverflowError } from "@zugobite/monetra-core";
+import { money, OverflowError } from "monetra-core";
 
 try {
   const huge = money("999999999999999999999999", "USD");
@@ -268,7 +268,7 @@ function safeMultiply(m: Money, factor: number): Money | null {
 Use error codes for programmatic error handling:
 
 ```typescript
-import { MonetraError, MonetraErrorCode } from "@zugobite/monetra-core";
+import { MonetraError, MonetraErrorCode } from "monetra-core";
 
 try {
   // Some operation
@@ -321,7 +321,7 @@ import {
   InsufficientFundsError,
   OverflowError,
   RoundingMode,
-} from "@zugobite/monetra-core";
+} from "monetra-core";
 
 function performCalculation(amount: string, currency: string) {
   try {
@@ -345,7 +345,7 @@ function performCalculation(amount: string, currency: string) {
 ### Result Pattern
 
 ```typescript
-import { money, Money, MonetraError, RoundingMode } from "@zugobite/monetra-core";
+import { money, Money, MonetraError, RoundingMode } from "monetra-core";
 
 type Result<T> =
   | { success: true; value: T }
@@ -389,7 +389,7 @@ if (result.success) {
 ### Input Validation
 
 ```typescript
-import { getCurrency, money, MonetraError, RoundingMode } from "@zugobite/monetra-core";
+import { getCurrency, money, MonetraError, RoundingMode } from "monetra-core";
 
 interface ValidationResult {
   valid: boolean;
@@ -452,7 +452,7 @@ import {
   RoundingRequiredError,
   InvalidPrecisionError,
   MonetraError,
-} from "@zugobite/monetra-core";
+} from "monetra-core";
 
 try {
   // Operation
@@ -465,7 +465,7 @@ try {
   } else if (error instanceof InvalidPrecisionError) {
     // Handle precision error
   } else if (error instanceof MonetraError) {
-    // Handle any other @zugobite/monetra-core error
+    // Handle any other monetra-core error
   } else {
     throw error; // Re-throw unexpected errors
   }
@@ -475,7 +475,7 @@ try {
 ### 2. Validate Before Operating
 
 ```typescript
-import { money, getCurrency, Money } from "@zugobite/monetra-core";
+import { money, getCurrency, Money } from "monetra-core";
 
 // Validate currency exists
 function isValidCurrency(code: string): boolean {
@@ -496,7 +496,7 @@ function canAfford(balance: Money, cost: Money): boolean {
 ### 3. Use Error Codes in Logs
 
 ```typescript
-import { MonetraError } from "@zugobite/monetra-core";
+import { MonetraError } from "monetra-core";
 
 function logMoneyError(error: MonetraError, context: object) {
   console.error({
@@ -512,7 +512,7 @@ function logMoneyError(error: MonetraError, context: object) {
 ### 4. Provide User-Friendly Messages
 
 ```typescript
-import { MonetraError, MonetraErrorCode } from "@zugobite/monetra-core";
+import { MonetraError, MonetraErrorCode } from "monetra-core";
 
 const userMessages: Record<MonetraErrorCode, string> = {
   [MonetraErrorCode.CURRENCY_MISMATCH]: "Please select matching currencies",

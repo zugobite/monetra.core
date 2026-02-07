@@ -1,6 +1,6 @@
 # Formatting & Parsing Guide
 
-`@zugobite/monetra-core` provides flexible formatting options for displaying monetary values and robust parsing for converting user input back to Money objects.
+`monetra-core` provides flexible formatting options for displaying monetary values and robust parsing for converting user input back to Money objects.
 
 ---
 
@@ -19,7 +19,7 @@
 Every `Money` object can be formatted using the `format()` method:
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const amount = money("1234567.89", "USD");
 
@@ -51,7 +51,7 @@ format(options?: {
 Format money according to different regional conventions:
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const amount = money("1234567.89", "USD");
 
@@ -91,7 +91,7 @@ console.log(euro.format({ locale: "en-IE" })); // "€1,234.56"
 Control how the currency identifier appears:
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const amount = money("99.99", "USD");
 
@@ -111,7 +111,7 @@ console.log(amount.format({ display: "name" }));
 ### Without Symbol
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const amount = money("1234.56", "USD");
 
@@ -139,7 +139,7 @@ prices.forEach((p) => {
 ### Combining Options
 
 ```typescript
-import { money } from "@zugobite/monetra-core";
+import { money } from "monetra-core";
 
 const amount = money("1234.56", "EUR");
 
@@ -171,7 +171,7 @@ console.log(
 The safest way to parse user input:
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 // Parse from string (major units)
 const a = money("10.50", "USD"); // $10.50
@@ -198,7 +198,7 @@ console.log(parseUserInput("€ 999,99", "EUR").format()); // Note: Careful with
 ### Locale-Aware Parsing
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 /**
  * Parse money from a localized string
@@ -240,7 +240,7 @@ console.log(parseLocalized("1.234,56 €", "EUR", "de-DE").format());
 ### From Form Inputs
 
 ```typescript
-import { Money, money } from "@zugobite/monetra-core";
+import { Money, money } from "monetra-core";
 
 interface MoneyInputResult {
   money: Money | null;
@@ -311,7 +311,7 @@ if (result.error) {
 ### JSON Serialization
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 const amount = money("99.99", "USD");
 
@@ -337,7 +337,7 @@ console.log(restored.format()); // "$99.99"
 ### Database Storage
 
 ```typescript
-import { Money, money } from "@zugobite/monetra-core";
+import { Money, money } from "monetra-core";
 
 // Option 1: Store as minor units (integer) + currency code
 interface MoneyRecord {
@@ -381,7 +381,7 @@ function fromStringRecord(record: MoneyStringRecord): Money {
 ### Compact Notation
 
 ```typescript
-import { Money, money } from "@zugobite/monetra-core";
+import { Money, money } from "monetra-core";
 
 function formatCompact(m: Money): string {
   const value = Number(m.minor) / 10 ** m.currency.decimals;
@@ -408,7 +408,7 @@ console.log(formatCompact(money("999", "USD"))); // "$999.00"
 ### Accounting Format
 
 ```typescript
-import { Money, money } from "@zugobite/monetra-core";
+import { Money, money } from "monetra-core";
 
 function formatAccounting(m: Money): string {
   if (m.isNegative()) {

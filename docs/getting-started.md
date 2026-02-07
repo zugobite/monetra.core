@@ -1,6 +1,6 @@
 # Getting Started
 
-This guide will help you install `@zugobite/monetra-core` and start handling monetary values with precision.
+This guide will help you install `monetra-core` and start handling monetary values with precision.
 
 ---
 
@@ -10,13 +10,13 @@ Install using your preferred package manager:
 
 ```bash
 # npm
-npm install @zugobite/monetra-core
+npm install monetra-core
 
 # yarn
-yarn add @zugobite/monetra-core
+yarn add monetra-core
 
 # pnpm
-pnpm add @zugobite/monetra-core
+pnpm add monetra-core
 ```
 
 **Requirements:** Node.js 18+ or modern browsers with `BigInt` support.
@@ -28,7 +28,7 @@ pnpm add @zugobite/monetra-core
 ### Creating Money
 
 ```typescript
-import { money, Money } from "@zugobite/monetra-core";
+import { money, Money } from "monetra-core";
 
 // From a string (major units) — safest approach
 const price = money("19.99", "USD");
@@ -57,7 +57,7 @@ const doubled = a.multiply(2);  // $20.00
 Division can produce non-terminating decimals, so a rounding mode is required:
 
 ```typescript
-import { money, RoundingMode } from "@zugobite/monetra-core";
+import { money, RoundingMode } from "monetra-core";
 
 const total = money("10.00", "USD");
 const perPerson = total.divide(3, { rounding: RoundingMode.HALF_UP });
@@ -102,7 +102,7 @@ amount.toDecimalString();           // "1234.56"
 ### Currency Conversion
 
 ```typescript
-import { Money, Converter } from "@zugobite/monetra-core";
+import { Money, Converter } from "monetra-core";
 
 const converter = new Converter("USD");
 converter.setRate("EUR", 0.92);
@@ -115,7 +115,7 @@ console.log(eur.format()); // "€92.00"
 ### Custom Tokens
 
 ```typescript
-import { defineToken, money } from "@zugobite/monetra-core";
+import { defineToken, money } from "monetra-core";
 
 defineToken({
   code: "LOYALTY",
@@ -141,10 +141,10 @@ const parsed = JSON.parse(json, Money.reviver); // restores Money instance
 
 ## TypeScript
 
-`@zugobite/monetra-core` is written in TypeScript with strict types. All public APIs are fully typed.
+`monetra-core` is written in TypeScript with strict types. All public APIs are fully typed.
 
 ```typescript
-import { Money, Currency, RoundingMode } from "@zugobite/monetra-core";
+import { Money, Currency, RoundingMode } from "monetra-core";
 
 function applyDiscount(price: Money, percent: number): Money {
   return price.subtractPercent(percent);

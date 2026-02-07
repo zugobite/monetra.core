@@ -1,6 +1,6 @@
 # Library Comparison
 
-A technical comparison between `@zugobite/monetra-core` and other JavaScript/TypeScript money handling libraries.
+A technical comparison between `monetra-core` and other JavaScript/TypeScript money handling libraries.
 
 ---
 
@@ -8,7 +8,7 @@ A technical comparison between `@zugobite/monetra-core` and other JavaScript/Typ
 
 | Library           | TypeScript | Decimal Approach               | Scope   |
 | ----------------- | ---------- | ------------------------------ | ------- |
-| **@zugobite/monetra-core** | Native     | Integer (BigInt)               | Library |
+| **monetra-core** | Native     | Integer (BigInt)               | Library |
 | Dinero.js 2.x     | Native     | Integer (BigInt)               | Library |
 | currency.js 2.x   | Types      | Floating-point with correction | Library |
 | big.js 6.x        | Types      | Arbitrary precision decimal    | Library |
@@ -19,7 +19,7 @@ A technical comparison between `@zugobite/monetra-core` and other JavaScript/Typ
 
 ## Feature Comparison
 
-| Feature                                | @zugobite/monetra-core | Dinero.js | currency.js | big.js | decimal.js | js-money |
+| Feature                                | monetra-core | Dinero.js | currency.js | big.js | decimal.js | js-money |
 | -------------------------------------- | ------------- | --------- | ----------- | ------ | ---------- | -------- |
 | Integer-based storage                  | Yes (BigInt)  | Yes       | No          | No     | No         | No       |
 | Immutable objects                      | Yes           | Yes       | Yes         | Yes    | Yes        | Yes      |
@@ -36,7 +36,7 @@ A technical comparison between `@zugobite/monetra-core` and other JavaScript/Typ
 
 ## When to Use Each Library
 
-### Use @zugobite/monetra-core when:
+### Use monetra-core when:
 
 - You need correct integer-based money handling with BigInt
 - You want built-in ISO 4217 currencies with no configuration
@@ -71,8 +71,8 @@ A technical comparison between `@zugobite/monetra-core` and other JavaScript/Typ
 ### Creating Money
 
 ```typescript
-// @zugobite/monetra-core
-import { money } from "@zugobite/monetra-core";
+// monetra-core
+import { money } from "monetra-core";
 const price = money("19.99", "USD");
 
 // Dinero.js
@@ -91,7 +91,7 @@ const price = new Big("19.99");
 ### Splitting
 
 ```typescript
-// @zugobite/monetra-core — built-in, lossless
+// monetra-core — built-in, lossless
 const [a, b, c] = money("10.00", "USD").allocate([1, 1, 1]);
 // $3.34, $3.33, $3.33
 
